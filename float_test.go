@@ -15,6 +15,10 @@ func TestFloat_UnmarshalJSON(t *testing.T) {
 		{"0.0000000", Float(0)},
 		{"1", Float(1)},
 		{"1.1", Float(1.1)},
+		{`"0"`, Float(0)},
+		{"\"0.0000000\"", Float(0)},
+		{"\"1\"", Float(1)},
+		{"\"1.1\"", Float(1.1)},
 	}
 
 	for _, c := range V {
