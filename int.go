@@ -12,8 +12,11 @@ type Int int
 func (n *Int) UnmarshalJSON(in []byte) error {
 	v := strings.Trim(string(in), `"`)
 	r, err := strconv.Atoi(v)
+
+	// no prefer errors, just default value
 	if err != nil {
-		return err
+		*n = 0
+		return nil
 	}
 	*n = Int(r)
 	return nil
